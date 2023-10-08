@@ -28,15 +28,15 @@ class MinTest {
     @Test
     void minNullElementTestCase()
     {
-        list.add (null);
-        list.add ("cat");
+        list.add(null);
+        list.add("cat");
         assertThrows(NullPointerException.class, () -> Min.min (list));
     }
 
     @Test
     void minSingleNullElementTestCase()
     {
-        list.add (null);
+        list.add(null);
         assertThrows(NullPointerException.class, () -> Min.min (list));
     }
 
@@ -60,7 +60,7 @@ class MinTest {
     @Test
     void minSingleElementTestCase()
     {
-        list.add ("cat");
+        list.add("cat");
         Object obj = Min.min(list);
         assertEquals("cat", obj, "Single Element List");
     }
@@ -68,8 +68,8 @@ class MinTest {
     @Test
     void minDoubleElementTestCase()
     {
-        list.add ("dog");
-        list.add ("cat");
+        list.add("dog");
+        list.add("cat");
         Object obj = Min.min (list);
         assertEquals("cat", obj, "Double Element List");
     }
