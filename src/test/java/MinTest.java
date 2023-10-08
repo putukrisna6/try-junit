@@ -11,7 +11,7 @@ class MinTest {
 
     @BeforeEach
     void setUp() {
-        list = new ArrayList<String>();
+        list = new ArrayList<>();
     }
 
     @AfterEach
@@ -30,14 +30,14 @@ class MinTest {
     {
         list.add(null);
         list.add("cat");
-        assertThrows(NullPointerException.class, () -> Min.min (list));
+        assertThrows(NullPointerException.class, () -> Min.min(list));
     }
 
     @Test
     void minSingleNullElementTestCase()
     {
         list.add(null);
-        assertThrows(NullPointerException.class, () -> Min.min (list));
+        assertThrows(NullPointerException.class, () -> Min.min(list));
     }
 
     @Test
@@ -48,13 +48,13 @@ class MinTest {
         arrayList.add("cat");
         arrayList.add("dog");
         arrayList.add(1);
-        assertThrows(ClassCastException.class, () -> Min.min (arrayList));
+        assertThrows(ClassCastException.class, () -> Min.min(arrayList));
     }
 
     @Test
     void minEmptyListTestCase()
     {
-        assertThrows(IllegalArgumentException.class, () -> Min.min (list));
+        assertThrows(IllegalArgumentException.class, () -> Min.min(list));
     }
 
     @Test
@@ -70,7 +70,7 @@ class MinTest {
     {
         list.add("dog");
         list.add("cat");
-        Object obj = Min.min (list);
+        Object obj = Min.min(list);
         assertEquals("cat", obj, "Double Element List");
     }
 
