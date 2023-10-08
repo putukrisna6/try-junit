@@ -73,4 +73,12 @@ class MinTest {
         Object obj = Min.min (list);
         assertEquals("cat", obj, "Double Element List");
     }
+
+    @Test
+    void minSameElementsTestCase()
+    {
+        list.add("1");
+        list.add("1");
+        assertEquals("1", Min.min(list));
+    }
 }
