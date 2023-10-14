@@ -49,11 +49,6 @@ class MinTest {
     }
 
     @Test
-    void minEmptyListTestCase() {
-        assertThrows(IllegalArgumentException.class, () -> Min.min(list));
-    }
-
-    @Test
     @SuppressWarnings ("unchecked")
     void minCompareEmptyObjectTestCase() {
         List arrayList = new ArrayList<>();
@@ -68,6 +63,11 @@ class MinTest {
         int[] array = {};
         arrayList.add(array);
         assertThrows(ClassCastException.class, () -> Min.min(arrayList));
+    }
+
+    @Test
+    void minEmptyListTestCase() {
+        assertThrows(IllegalArgumentException.class, () -> Min.min(list));
     }
 
     @Test
@@ -90,6 +90,13 @@ class MinTest {
         list.add("1");
         list.add("1");
         assertEquals("1", Min.min(list));
+    }
+
+    @Test
+    void minEmptyStringElementTestCase() {
+        list.add("");
+        list.add("1");
+        assertEquals("", Min.min(list));
     }
 
     @Test
