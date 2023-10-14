@@ -19,6 +19,18 @@ class BoundedQueueTest {
     }
 
     @Test
+    public void testConstructorZeroCapacity() {
+        BoundedQueue bQueue = new BoundedQueue(0);
+        assertEquals(bQueue.isFull(), bQueue.isEmpty());
+    }
+
+    @Test
+    public void testConstructorPositiveCapacity() {
+        assertTrue(queue.isEmpty());
+        assertFalse(queue.isFull());
+    }
+
+    @Test
     public void testEnQueueNullElement() {
         assertThrows(NullPointerException.class, () -> queue.enQueue(null),
                 "EnQueue should throw exception for null element");

@@ -36,6 +36,7 @@ class PrimeNumbersTest {
     @Test
     public void testComputePrimesForSkippingPrimesEndingIn9() {
         primeNumbers.computePrimes(10);
+        assertFalse(primeNumbers.toString().contains("9"), "Expected 9 to be skipped");
         assertFalse(primeNumbers.toString().contains("19"), "Expected 19 to be skipped");
     }
 
