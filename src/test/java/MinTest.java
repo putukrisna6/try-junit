@@ -54,6 +54,23 @@ class MinTest {
     }
 
     @Test
+    @SuppressWarnings ("unchecked")
+    void minCompareEmptyObjectTestCase() {
+        List arrayList = new ArrayList<>();
+        arrayList.add(new Object());
+        assertThrows(ClassCastException.class, () -> Min.min(arrayList));
+    }
+
+    @Test
+    @SuppressWarnings ("unchecked")
+    void minCompareEmptyArrayTestCase() {
+        List arrayList = new ArrayList<>();
+        int[] array = {};
+        arrayList.add(array);
+        assertThrows(ClassCastException.class, () -> Min.min(arrayList));
+    }
+
+    @Test
     void minSingleElementTestCase() {
         list.add("cat");
         Object obj = Min.min(list);
@@ -73,5 +90,13 @@ class MinTest {
         list.add("1");
         list.add("1");
         assertEquals("1", Min.min(list));
+    }
+
+    @Test
+    void minCompareIntegersTestCase() {
+        List<Integer> intList = new ArrayList<>();
+        intList.add(10);
+        intList.add(100);
+        assertEquals((Integer) 10, Min.min(intList));
     }
 }
