@@ -16,6 +16,21 @@ class PrimeNumbersTest {
     }
 
     @Test
+    public void testComputePrimesCastedString() {
+        assertThrows(NumberFormatException.class, () -> primeNumbers.computePrimes(Integer.parseInt("number")));
+    }
+
+    @Test
+    public void testComputePrimesCastedObject() {
+        assertThrows(ClassCastException.class, () -> primeNumbers.computePrimes((Integer) new Object()));
+    }
+
+    @Test
+    public void testComputePrimesNull() {
+        assertThrows(NullPointerException.class, () -> primeNumbers.computePrimes((Integer) null));
+    }
+
+    @Test
     public void testComputePrimesForPositiveNumbers() {
         primeNumbers.computePrimes(5);
         assertEquals("[2, 3, 5, 7, 11]", primeNumbers.toString(), "Expected first 5 primes");
@@ -72,6 +87,7 @@ class PrimeNumbersTest {
     @Test
     public void testPrimesAround19() {
         primeNumbers.computePrimes(10);
+        System.out.println(primeNumbers.toString());
         assertTrue(primeNumbers.toString().contains("17"), "Expected 17 to be included");
         assertFalse(primeNumbers.toString().contains("19"), "Expected 19 to be skipped");
         assertTrue(primeNumbers.toString().contains("23"), "Expected 23 to be included");
